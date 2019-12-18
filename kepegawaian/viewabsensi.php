@@ -50,21 +50,17 @@ $page= 'kepegawaian';
             <li class="list-group-item">
                 <b>Nama</b> <span class="pull-right"><?php echo $fetch['nama'];?></span>
             </li>
-            <!-- <li class="list-group-item">
-                <b>Nama Pegawai</b> <span class="pull-right"><?php echo $fetch['nama_pegawai'];?></span>
-            </li> -->
+           
             <li class="list-group-item">
                 <b>Company</b> <span class="pull-right"><?php echo $fetch['com']; ?></span>
             </li>
             <li class="list-group-item">
-                <b>Departemen</b> <span class="pull-right"><?php echo $fetch['dep']; ?></span>
+                <b>Departemen</b> <span class="pull-right"><?php echo $fetch['kd_departemen']; ?></span>
             </li>
             <li class="list-group-item">
                 <b>Employe</b> <span class="pull-right"><?php echo $fetch['em']; ?></span>
             </li>
-            <!-- <li class="list-group-item">
-                <b>Jam Pulang </b> <span class="pull-right"><?php echo $fetch['jam_pulang']; ?></span>
-            </li> -->
+           
            
             <a onclick="window.history.back();return false;" class="btn btn-warning"><i class="fa fa-reply" type="button"></i> Back</a>
             <!-- <a href="export/pembeli_detail.php?id=<?= $_GET['id'] ?>" target="blank" class="btn btn-primary"><i class="fa fa-download"></i> Report</a> -->

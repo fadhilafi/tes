@@ -19,10 +19,11 @@
             }
         }
         
-        public function addabsensi($nama, $com,  $em, $dep){
-            $stmt = $this->conn->prepare("INSERT INTO pegawai (nama, com, em, dep) 
+     
+          public function addabsensi($nama, $com,  $em, $kd_departemen){
+            $stmt = $this->conn->prepare("INSERT INTO pegawai (nama, com, em, kd_departemen) 
             VALUES (?, ?, ?, ?)") or die($this->conn->error);
-            $stmt->bind_param("ssss",$nama, $com,  $em, $dep);
+            $stmt->bind_param("ssss",$nama, $com, $em, $kd_departemen);
             if($stmt->execute()){
                 $stmt->close();
                 $this->conn->close();
@@ -30,7 +31,6 @@
                
             }
         }
-        
         
        //  public function date(){
        //  $date = date('Y-m-d H:i:s');
@@ -61,7 +61,7 @@
         }
          public function readperview($nip){
             $con = $this->conn;
-            $result = mysqli_query($con ,"select * from m3_absensi where id = '$nip'");
+            $result = mysqli_query($con ,"select * from pegawai where id = '$nip'");
             return $result;
         }
          public function readperviewb($nip){
@@ -87,9 +87,9 @@
             return $result;
         }
 
-        public function update($id, $nama, $com,  $em, $dep){
+        public function update($id, $nama, $com,  $em, $kd_departemen){
             $con = $this->conn;
-            $result = mysqli_query($con,"update pegawai set nama='$nama', com='$com', em='$em', dep='$dep' where id='$id'");
+            $result = mysqli_query($con,"update pegawai set nama='$nama', com='$com', em='$em', kd_departemen='$kd_departemen' where id='$id'");
             return $result;
         }
         function get_lastno(){

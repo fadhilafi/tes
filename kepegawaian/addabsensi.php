@@ -15,7 +15,7 @@ $page= 'kepegawaian';
       <h1>
          Bag. Kepegawaian
          <br>
-        <small>Data Karyawan</small>
+        <small>Data Kepegawaian</small>
       </h1>
      <!--  <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Bag. Kepegawaian</a></li>
@@ -30,7 +30,7 @@ $page= 'kepegawaian';
         <div class="col-lg-7">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                 <h2 class="box-title"><b>Add Data Karyawan</b>
+                 <h2 class="box-title"><b>Add Data Kepegawaian</b>
                 </h2>
                 </div>
              <!-- form start -->
@@ -41,64 +41,62 @@ $page= 'kepegawaian';
                 
                    
                  
-                    <!-- 
-                    <label for="nama">Nama Pegawai</label>
-                    <div class="form-group input-group">
-                        <span class="input-group-addon"><i class="fa fa-pencil-square-o"></i></span>
-                        <select name="nip" class="form-control">
-                          <option>-- pilih nama pegawai --</option>
-                     <?php
                     
-                       $readpera = $conn->readpera();
-                      while($fetch = $readpera->fetch_array()){?>
-                        <option value=<?php echo $fetch['nip'];?>>
-                          <?php echo $fetch['nama_pegawai'];?></option>
-                      
-                      <?php
-                      }
-                    ?>
-                    </select>
-                    </div> -->
-                   <label for="nama">Nama Pegawai</label>
+                  
+                      <label for="nama">Nama Pegawai</label>
                      <div class="form-group input-group">
                         
-                        <input name="nama" type="text" class="form-control" id="nama" placeholder="Enter nama_pegawai">
+                        <input name="nama" type="text" class="form-control" id="nama" placeholder="Enter Nama Pegawai" >
                     </div>
-                    <!--  <label for="dep">Departemen</label>
+                    <label for="com">Company</label>
                      <div class="form-group input-group">
                         
-                        <input name="dep" type="text" class="form-control" id="dep" placeholder="Enter Departemen">
-                    </div> -->
-                     <label for="com">Company</label>
-                     <div class="form-group input-group">
-                        
-                        <input name="com" type="text" class="form-control" id="com" placeholder="Enter Company">
+                        <input name="com" type="text" class="form-control" id="com" placeholder="Enter Company" >
                     </div>
+                   <!--  <label for="em">Employe</label>
+                     <div class="form-group input-group">
+                        
+                        <input name="em" type="text" class="form-control" id="em" placeholder="Enter employe" >
+                    </div>
+                     -->
+                    
+                    
 
                   
-
-                   
-
-                  
-                      <label for="kd_jadwal">Jadwal</label>
+                     <label for="em">Employe</label>
                     <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-calendar-check-o"></i></span>
-                        <select name="kd_jadwal" class="form-control">
-                          <option>-- Pilih Jadwal --</option>
+                        <select name="em" class="form-control">
+                          <option>-- Pilih Employe --</option>
                      <?php
                     
                        $readperb = $conn->readperb();
                       while($fetch = $readperb->fetch_array()){?>
-                        <option value=<?php echo $fetch['jadwal'];?>>
-                          <?php echo $fetch['jadwal'];?></option>
+                        <option value=<?php echo $fetch['em'];?>>
+                          <?php echo $fetch['salary'];?></option>
                       
                       <?php
                       }
                     ?>
                     </select>
                     </div>
-
+                       <label for="kd_departemen">Departemen</label>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-calendar-check-o"></i></span>
+                        <select name="kd_departemen" class="form-control">
+                          <option>-- Pilih Departemen --</option>
+                     <?php
                     
+                       $readperc = $conn->readperc();
+                      while($fetch = $readperc->fetch_array()){?>
+                        <option value=<?php echo $fetch['kd_departemen'];?>>
+                          <?php echo $fetch['nama_departemen'];?></option>
+                      
+                      <?php
+                      }
+                    ?>
+                    </select>
+                    </div>
                   
 
                     

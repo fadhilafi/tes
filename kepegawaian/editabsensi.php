@@ -73,18 +73,18 @@ $con = new mdlabsensi();
                     ?>
                     </select>
                     </div>
-                      <label for="dep">Departemen</label>
+                      <label for="kd_departemen">Departemen</label>
                     <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-calendar-check-o"></i></span>
-                        <select name="edep" class="form-control" >
+                        <select name="kd_departemen" class="form-control" >
                             <option>-- Pilih Departemen --</option>
                      <?php
                     
                        $readperc = $con->readperc();
                       while($fetch3 = $readperc->fetch_array()){?>
-                        <option value=<?php echo $fetch2['dep'];?>
-                        <?php if($fetch3['dep']==$fetch['dep']){?> selected="selected" <?php }?>>
-                          <?php echo $fetch3['dep'];?></option>
+                        <option value=<?php echo $fetch2['kd_departemen'];?>
+                        <?php if($fetch3['kd_departemen']==$fetch['kd_departemen']){?> selected="selected" <?php }?>>
+                          <?php echo $fetch3['kd_departemen'];?></option>
                       
                       <?php
                       }

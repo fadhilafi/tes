@@ -59,10 +59,10 @@ include '../db/ceklogin.php';
                       <th>No</th>
                       <th>Nama</th>
                       <!-- <th>Nama Pegawai</th> -->
-                      <th>Departemen</th>
+                     
                       <th>Company</th>
                       <th>Employee</th>
-
+                       <th>Departemen</th>
                      
                       <th>Aksi</th>
                 </tr>
@@ -80,9 +80,10 @@ include '../db/ceklogin.php';
                 <tr>
                   <td><?php echo $no++."."; ?></td>
                   <td><?php echo $fetch['nama'];?></td> 
-                  <td><?php echo $fetch['dep'];?></td>
+                 
                   <td><?php echo $fetch['com'];?></td>
                   <td><?php echo $fetch['em']; ?></td>
+                   <td><?php echo $fetch['kd_departemen'];?></td>
                   
  
                   

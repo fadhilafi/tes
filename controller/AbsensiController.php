@@ -12,17 +12,17 @@
 			$conn->create($nama, $com,  $em, $dep);
 			header('location: signup.php');
 
-	}elseif($action == "tambahabsensi"){ 	
+}elseif($action == "tambahabsensi"){ 	
    		 	$nama = $_POST['nama'];
-			$com  = $_POST['com'];
-			$em = $_POST['em'];
-			$dep = $_POST['dep'];
-			$conn->addabsensi($nama, $com,  $em, $dep);
+    		$com = $_POST['com'];
+    		$em = $_POST['em'];
     		
-		
+    		$kd_departemen = $_POST['kd_departemen'];
+    		
+    		
+    		
+			$conn->addabsensi($nama, $com, $em, $kd_departemen);
 		   	header("location:../kepegawaian/absensi.php");	
-
-
 		
 	
 	}elseif($action == "delabsensi"){ 	
@@ -34,8 +34,8 @@
 			$nama = $_POST['nama'];
 			$com  = $_POST['com'];
 			$em = $_POST['em'];
-			$dep = $_POST['dep'];
-			$conn->update($id, $nama, $com,  $em, $dep);
+			$kd_departemen = $_POST['kd_departemen'];
+			$conn->update($id, $nama, $com,  $em, $kd_departemen);
     		
 			header("location:../kepegawaian/absensi.php");
 
