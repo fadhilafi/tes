@@ -1,0 +1,137 @@
+<?php  
+
+require '../db/mdl_databarang.php';
+$conn = new mdldatabarang();
+  include 'header.php';
+  $page= 'dashboard'; 
+  include 'sidebar.php';
+?>
+
+  <!-- ======================CONTENT============================== -->
+
+  <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Dashboard
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+      </ol>
+    </section>
+    <section class="content">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+          <h1><center><b> Enterprise Resource Planning</b></center></h1>
+          <p><center><h3>Pabrik Rokok PT.Cemara Mas</center></h3></p> 
+                </div><!-- /.box-header -->
+                <div class="box-body">
+
+
+                   <table  id="example1" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Kode Barang</th>
+                  <th>Nama Barang</th>
+                  <th>Masuk</th>
+                  <th>Keluar</th>
+                  <th>Stok</th>
+                  <th>Status</th>
+                  <th>Gudang</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                <?php
+                  $no = 1;
+                  $readdtbrg = $conn->readdtbrg();
+                  while($fetch = $readdtbrg->fetch_array()){ 
+                ?>
+                
+                <tr>
+                  <td><?php echo $no++."."; ?></td>
+                  <td><?php echo $fetch['kd_barang']; ?></td>
+                  <td><?php echo $fetch['nama']; ?></td>
+                  <td><?php echo $fetch['masuk']; ?></td>
+                  <td><?php echo $fetch['keluar']; ?></td>
+                  <?php
+                    $a = $fetch['masuk']; 
+                    $b = $fetch['keluar'];
+                    $total = $a-$b;
+                  ?>
+                  <td><?php echo $total ?></td>
+
+                  <?php 
+
+                  $stok = $total;
+
+                  if($stok > 250 ){
+
+                    $status ="<a class='btn btn-danger btn-sm' >Over</a>";
+                  }elseif ($stok < 100) {
+                    $status = "<a class='btn btn-danger btn-sm'>Limit</a>";
+                  }elseif ($stok == 250 ) {
+                    $status ="<a class='btn btn-success btn-sm' >Sesuai</a>";
+                  }elseif ($stok == 100 ) {
+                    $status = "<a class='btn btn-warning btn-sm'>Mendekati Limit</a>";
+
+                  }
+
+
+                  ?>
+                  
+                  <td><?php echo $status ?></td>
+                  <td><?php echo $fetch['nama_gudang']; ?></td>
+
+
+             
+                  <td>
+            
+                    <a class="btn btn-danger" href="../controller/perpemcontroller.php?postid=<?php echo $fetch['id']; ?>&action=delperpem"><i class="fa fa-trash"></i></a> 
+                    <a class="btn btn-info" href="perpemda.php?no_transI=<?php echo $fetch['no_transI']; ?>"><i style="width:12px;" class="fa fa-edit"></i></a>
+                </td>
+                </tr>
+                <?php
+                    }
+                ?>
+                </tbody>
+              </table>
+          
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+
+      <!-- /.row -->
+
+      <!-- modals Tambah-->
+
+        <!-- /.modal -->
+
+        <!-- modals Edit -->
+   
+       
+        <!-- /.modal -->
+
+        <!-- modals Hapus -->
+       
+        <!-- /.modal -->
+      
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <?php include("footer.php");?>
+</div>
